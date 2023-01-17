@@ -39,5 +39,26 @@
       </p>
       <button>닫기</button>
     </div>
+
+    <script>
+      var open = $('.container button')
+      var close = $('.modal button')
+      var dimm = $('.dimm')
+      var modal = $('.modal')
+
+      open.click(function () {
+        // dimm.show()
+        // modal.show()
+        dimm.fadeIn()
+        modal.fadeIn()
+      })
+
+      close.click(function () {
+        // dimm.hide()
+        // modal.hide()
+        dimm.fadeOut()
+        modal.fadeOut()
+      })
+    </script>
   </body>
 </html>
