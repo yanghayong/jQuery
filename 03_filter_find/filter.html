@@ -37,11 +37,35 @@
 
       //   2. filter()
       // $(선택자).filter(구문...)
-      var oddTd = $('td').filter(':even')
+      //   var oddTd = $('td').filter(':even')
 
-      $.each(oddTd, function (index, td) {
-        $(td).css('backgroundColor', 'red')
-      })
+      //   $.each(oddTd, function (index, td) {
+      //     $(td).css('backgroundColor', 'red')
+      //   })
+
+      //   $('td').filter(function (index, el) {
+      //     if (index % 2 == 1) {
+      //       $(el).css('backgroundColor', 'red')
+      //     }
+      //   })
+
+      //   3. chaining
+      //   $('td')
+      //     .css('backgroundColor', 'red')
+      //     .eq(3)
+      //     .css('backgroundColor', 'green')
+
+      //   4. first(), last()
+      var firstText = $('td').first().text()
+      var lastText = $('td').last().text()
+      console.log(firstText)
+      console.log(lastText)
+
+      //   5. next(), prev()
+      var nextText = $('td').eq(4).next().text()
+      var prevText = $('td').eq(4).prev().text()
+      console.log(nextText)
+      console.log(prevText)
     </script>
   </body>
 </html>
