@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filter</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <table>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      // 1.eq()
+      //   $('td:eq(1)').css('backgroundColor', 'red')
+      //   $('td').eq(3).css('backgroundColor', 'red')
+
+      //   2. filter()
+      // $(선택자).filter(구문...)
+      var oddTd = $('td').filter(':even')
+
+      $.each(oddTd, function (index, td) {
+        $(td).css('backgroundColor', 'red')
+      })
+    </script>
+  </body>
+</html>
