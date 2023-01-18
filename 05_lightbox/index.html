@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery-light box</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>lightbox</h1>
+      <ul class="cards">
+        <li>
+          <img src="../images/img_01.jpg" data-img="../images/img_01_b.jpg" />
+        </li>
+        <li>
+          <img src="../images/img_02.jpg" data-img="../images/img_02_b.jpg" />
+        </li>
+        <li>
+          <img src="../images/img_03.jpg" data-img="../images/img_03_b.jpg" />
+        </li>
+        <li>
+          <img src="../images/img_04.jpg" data-img="../images/img_04_b.jpg" />
+        </li>
+      </ul>
+    </div>
+
+    <div class="dimm">
+      <img src="" alt="" />
+    </div>
+
+    <script>
+      var item = $('.cards li')
+      var dimm = $('.dimm')
+
+      item.click(function () {
+        var dataImg = $(this).find('img').attr('data-img')
+
+        dimm.addClass('show')
+        dimm.find('img').attr('src', dataImg)
+
+        dimm.click(function () {
+          $(this).removeClass('show')
+        })
+      })
+    </script>
+  </body>
+</html>

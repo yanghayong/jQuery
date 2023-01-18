@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery-drawer</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>drawer</h1>
+
+      <div class="side">
+        <div class="banner">banner</div>
+        <ul>
+          <li>html</li>
+          <li>css</li>
+          <li>javascript</li>
+          <li>jquer</li>
+          <li>react</li>
+          <li>git</li>
+        </ul>
+        <div class="banner">banner</div>
+        <div class="banner">banner</div>
+        <div class="banner">banner</div>
+
+        <div class="btn">
+          <!-- <i class="xi-angle-left"></i> -->
+          <img src="../images/open.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $('.btn').click(function () {
+        $('.side').toggleClass('active')
+
+        if ($('.side').hasClass('active')) {
+          //   $(this).find('i').css('transform', 'rotate(180deg)')
+          $(this).find('img').attr('src', '../images/close.png')
+        } else {
+          //   $(this).find('i').css('transform', 'rotate(0)')
+          $(this).find('img').attr('src', '../images/open.png')
+        }
+      })
+    </script>
+  </body>
+</html>
