@@ -17,18 +17,92 @@ ul {
   justify-content: space-between;
   height: 80px;
   padding: 0 30px;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  transition: height 0.3s, backgrounde-color 0.3s;
+}
+
+.header.on {
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
 }
 
 .header .nav {
   display: flex;
 }
 
-.header .nav li a {
+.header .nav > li > a {
   font-weight: bold;
   display: block;
   height: 80px;
   line-height: 80px;
   padding: 0 40px;
+}
+
+.header.on .nav > li > a {
+  height: 60px;
+  line-height: 60px;
+}
+
+.header .nav > li {
+  position: relative;
+}
+
+.header .nav ul {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  z-index: 100;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  display: none;
+}
+
+.header.on .nav ul {
+  top: 60px;
+}
+
+.header .nav ul li a {
+  display: block;
+  text-align: center;
+  padding: 16px 0;
+  white-space: nowrap;
+}
+
+.header .nav ul li:hover {
+  background-color: #eee;
+}
+
+.header .user {
+  font-size: 24px;
+}
+
+/* slide */
+.slider {
+  position: relative;
+  padding-top: 80px;
+}
+
+.btns {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btns img {
+  width: 46px;
+  cursor: pointer;
+  filter: brightness(50%);
 }
 
 .slide_01 .item {
@@ -48,6 +122,57 @@ ul {
   background-image: url('../images/slide_03.jpg');
 }
 
+/* slick_custom */
+.slide_01 .slick-dots {
+  bottom: 20px;
+}
+
+.slide_01 .slick-dots li {
+  width: initial;
+}
+.slide_01 .slick-dots li button {
+  background-color: #000;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  opacity: 0.2;
+  transition: width 0.3s;
+}
+.slide_01 .slick-dots li button::before {
+  display: none;
+}
+.slide_01 .slick-dots li.slick-active button {
+  opacity: 0.7;
+  width: 60px;
+}
+
+.slide_01 .slick-prev {
+  left: 25px;
+  z-index: 100;
+}
+.slide_01 .slick-next {
+  right: 25px;
+  z-index: 100;
+}
+
+.slide_01 .slick-prev:before,
+.slide_01 .slick-next:before {
+  font-size: 40px;
+  color: #666;
+}
+
+.slide_02 {
+  margin: 60px -20px;
+}
+
+.slide_02 .item {
+  margin: 0 20px;
+}
+
+.slide_02 .item img {
+  width: 100%;
+}
+
 /* main */
 .main {
   max-width: 1000px;
@@ -64,4 +189,20 @@ ul {
 .main p {
   line-height: 1.6;
   padding: 20px 0;
+}
+
+/* gotop */
+.go_top {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: none;
 }

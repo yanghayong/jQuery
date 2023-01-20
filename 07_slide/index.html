@@ -14,26 +14,75 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="go_top"><i class="xi-angle-up"></i></div>
     <div class="container">
       <div class="header">
         <h1>로고</h1>
         <ul class="nav">
-          <li><a href="#x">홈</a></li>
-          <li><a href="#x">소개</a></li>
-          <li><a href="#x">서비스</a></li>
-          <li><a href="#x">블로그</a></li>
-          <li><a href="#x">연락하기</a></li>
+          <li>
+            <a href="#x">소개</a>
+            <ul>
+              <li><a href="#x">인사말</a></li>
+              <li><a href="#x">주요연혁</a></li>
+              <li><a href="#x">수상내역</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#x">서비스</a>
+            <ul>
+              <li><a href="#x">리서치</a></li>
+              <li><a href="#x">기업윤리</a></li>
+              <li><a href="#x">기업윤리규범</a></li>
+              <li><a href="#x">프라이버시</a></li>
+              <li><a href="#x">라이브러리</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#x">블로그</a>
+            <ul>
+              <li><a href="#x">보도자료</a></li>
+              <li><a href="#x">TV광고</a></li>
+              <li><a href="#x">미디어행사</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#x">포트폴리오</a>
+            <ul>
+              <li><a href="#x">기업지배구조</a></li>
+              <li><a href="#x">주주구성</a></li>
+              <li><a href="#x">이사회</a></li>
+              <li><a href="#x">정관</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#x">연락하기</a>
+            <ul>
+              <li><a href="#x">채용정보</a></li>
+            </ul>
+          </li>
         </ul>
+        <div class="user"><i class="xi-user"></i></div>
       </div>
 
       <!-- slide -->
-      <div class="slide_01">
-        <div class="item item_01"></div>
-        <div class="item item_02"></div>
-        <div class="item item_03"></div>
+      <div class="slider">
+        <div class="slide_01">
+          <div class="item item_01"></div>
+          <div class="item item_02"></div>
+          <div class="item item_03"></div>
+        </div>
+
+        <div class="btns">
+          <img class="prev" src="../images/prev_btn.png" alt="" />
+          <img class="next" src="../images/next_btn.png" alt="" />
+        </div>
       </div>
 
       <!-- main -->
@@ -57,6 +106,13 @@
           파란 것은 하나 거외다. 이름을 옥 별 버리었습니다. 별 별 자랑처럼
           계집애들의 남은 봅니다.
         </p>
+        <!-- slide_2 -->
+        <div class="slide_02">
+          <div class="item"><img src="../images/img_01.jpg" alt="" /></div>
+          <div class="item"><img src="../images/img_02.jpg" alt="" /></div>
+          <div class="item"><img src="../images/img_03.jpg" alt="" /></div>
+          <div class="item"><img src="../images/img_04.jpg" alt="" /></div>
+        </div>
         <p>
           마리아 오면 이름과, 별빛이 별 소학교 책상을 겨울이 가슴속에 거외다.
           속의 나는 무성할 마디씩 걱정도 있습니다. 어머니, 애기 소녀들의 묻힌
@@ -112,7 +168,43 @@
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
-      $('.slide_01').slick({})
+      $('.slide_01').slick({
+        dots: true,
+        nextArrow: $('.next'),
+        prevArrow: $('.prev'),
+      })
+
+      $('.slide_02').slick({
+        dots: true,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      })
+    </script>
+
+    <script>
+      $('.nav li').hover(function () {
+        $(this).find('ul').stop().slideToggle('fast')
+      })
+
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+          $('.header').addClass('on')
+        } else {
+          $('.header').removeClass('on')
+        }
+
+        if ($(this).scrollTop() > 600) {
+          $('.go_top').fadeIn()
+        } else {
+          $('.go_top').fadeOut()
+        }
+      })
+    </script>
+
+    <script>
+      $('.go_top').click(function () {
+        $('html').animate({ scrollTop: 0 }, 400)
+      })
     </script>
   </body>
 </html>
