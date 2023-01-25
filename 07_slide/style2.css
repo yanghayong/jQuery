@@ -13,7 +13,6 @@ ul {
 
 .header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   height: 80px;
   padding: 0 30px;
@@ -22,14 +21,26 @@ ul {
   left: 0;
   z-index: 1;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0);
-  transition: height 0.3s, background-color 0.3s;
+  background-color: #fff;
+  overflow: hidden;
 }
 
-.header.on {
-  height: 60px;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+.header::after {
+  content: '';
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.header h1,
+.header .user {
+  height: 80px;
+  line-height: 80px;
 }
 
 .header .nav {
@@ -44,13 +55,12 @@ ul {
   padding: 0 40px;
 }
 
-.header.on .nav > li > a {
-  height: 60px;
-  line-height: 60px;
-}
-
 .header .nav > li {
   position: relative;
+}
+
+.header .nav > li:hover > a {
+  color: orangered;
 }
 
 .header .nav ul {
@@ -61,8 +71,6 @@ ul {
   width: 150px;
   z-index: 100;
   background-color: #fff;
-  border: 1px solid #ddd;
-  display: none;
 }
 
 .header.on .nav ul {
@@ -74,10 +82,11 @@ ul {
   text-align: center;
   padding: 16px 0;
   white-space: nowrap;
+  font-size: 14px;
 }
 
-.header .nav ul li:hover {
-  background-color: #eee;
+.header .nav ul li a:hover {
+  text-decoration: underline;
 }
 
 .header .user {
@@ -207,4 +216,18 @@ ul {
   right: 20px;
   bottom: 20px;
   display: none;
+}
+
+.dimm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.3s;
+}
+
+.dimm.active {
+  background-color: rgba(0, 0, 0, 0.75);
 }
